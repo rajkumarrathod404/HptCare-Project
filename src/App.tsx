@@ -29,14 +29,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { theme } from "./theme";
 import { CollapseDesktop } from "./Navbar";
 
+
 export default function App() {
   return (
     <BrowserRouter>
       <MantineProvider theme={theme}>
         <Routes>
-          <Route></Route>
+          <Route path="/" element={<CollapseDesktop />}></Route>
         </Routes>
-        <CollapseDesktop />
         {/* <Router /> */}
       </MantineProvider>
     </BrowserRouter>
