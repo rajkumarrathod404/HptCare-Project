@@ -1,0 +1,22 @@
+{
+  "emp": [
+    {
+      "id": 1,
+      "name": "Employee 1",
+      "email": "testone@gmail,com",
+      "num": "9856457854"
+    },
+    {
+      "id": 2,
+      "name": "Employee 2",
+      "email": "test@gmail,com",
+      "num": "9856478533"
+    },
+    {
+      "id": 3,
+      "name": "Employee 3",
+      "email": "testthree@gmail,com",
+      "num": "9856457855"
+    }
+  ]
+}
