@@ -10,7 +10,7 @@
 // )
 import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
-import App from "./Main/App";
+import App from "./App";
 import { store } from "./App/Store";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

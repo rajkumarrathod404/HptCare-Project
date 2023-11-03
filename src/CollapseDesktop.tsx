@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import MainData from "./MainData/MainData";
+import MainData from "./MainScreen/MainData";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-import ProfileDetail from "./ProfileDetail";
-import ContactUs from "./Nav/ContactUs";
-import About from "./Nav/About";
-import Chat from "./Nav/Chat";
-import Nav from "./Nav/AppShell";
-import LogInPage from "./Log/in/LogInPage";
-import AddEditEmployee from "./MainData/Add-Edit-Employee";
+import ProfileDetail from "./Nav/Profile/ProfileDetail";
+import ContactUs from "./Nav/SideBar/ContactUs";
+import About from "./Nav/SideBar/About";
+import Chat from "./Nav/SideBar/Chat";
+import Nav from "./Nav/NavBar";
+import LogInPage from "./ScreenCover/Login/Signup/LogInPage";
+import AddEditEmployee from "./MainScreen/Add-Edit-Employee";
+import SignUP from "./ScreenCover/Login/Signup/SignUp";
+import { CoverComponent } from "./ScreenCover/CoverComponent";
 // import { MantineLogo } from '@mantine/ds';
 interface empType {
   id: number;
@@ -37,7 +39,9 @@ export function CollapseDesktop() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<LogInPage />}></Route>
+          <Route path="/cover" element={<CoverComponent />}></Route>
+          <Route path="/cover/login" element={<LogInPage />}></Route>
+          <Route path="/cover/signup" element={<SignUP />}></Route>
 
           <Route path="/" element={<Nav />}>
             <Route path="/" element={<MainData emplist={empList} />}></Route>

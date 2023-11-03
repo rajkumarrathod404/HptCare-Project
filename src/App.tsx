@@ -36,8 +36,8 @@
 import "@mantine/core/styles.css";
 import { MantineProvider, createTheme } from "@mantine/core";
 // import { Router } from "./Router";
-import { theme } from "../theme";
-import { CollapseDesktop } from "../Navbar";
+import { theme } from "./theme";
+import { CollapseDesktop } from "./CollapseDesktop";
 // import Count from "./Count";
 
 export default function App() {

@@ -6,8 +6,24 @@ interface empType {
   email: string;
   num: number;
 }
+// const handleAdd = () => {};
 const handleDeleteEdit = (id: number, source: string) => {
-  // source==="EDIT"?
+  // if (window.confirm("do you want to delete ")) {
+  // source === "REMOVE"
+    // ? 
+    // fetch("http://localhost:5174/emp" + id, {
+    //     method: "DELETE",
+    //   })
+    //     .then(() => console.log("removed"))
+    //     .catch((err) => console.log(err.message))
+    // :
+     fetch("http://localhost:5174/emp" + id, {
+        method: "DELETE",
+      })
+        .then(() => console.log("removed"))
+        .catch((err) => console.log(err.message));
+
+  // }
 };
 
 const MainData = ({ emplist }: { emplist: empType[] }) => {
@@ -43,13 +59,16 @@ const MainData = ({ emplist }: { emplist: empType[] }) => {
                   <td>{emp.email}</td>
                   <td>{emp.num}</td>
                   <td>
-                    <Button
-                      // style={{ backgroundColor: "green" }}
-                      onClick={() => {
-                        handleDeleteEdit(emp.id, "EDIT");
-                      }}>
-                      Edit
-                    </Button>
+                    <Link to={"/Add/emp"}>
+                      <Button
+                        style={{ backgroundColor: "#5DADE2" }}
+                        onClick={() => {
+                          handleDeleteEdit(emp.id, "EDIT");
+                        }}>
+                        Edit
+                      </Button>
+                    </Link>
+                    ;
                     <Button
                       style={{ backgroundColor: "red" }}
                       onClick={() => {
