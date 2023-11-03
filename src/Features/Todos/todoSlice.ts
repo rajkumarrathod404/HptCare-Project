@@ -1,28 +1,21 @@
-// import { ActionIcon } from "@mantine/core";
-// import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-// interface todoType {
-//   id: string;
-//   text: string;
-// }
-// const initialState = {
-//   todos: [],
-// };
+const initialState = {
+  counter: 0,
+  tood:[]
+};
 
-// export const todoSlice = createSlice({
-//   name: "todo",
-//   initialState,
-//   reducers: {
-//     addTodo: (state, action) => {
-//       const todo: todoType = { id: nanoid(), text: action.payload };
-//       state.todos.push(todo);
-//     },
-//     removeTodo: (state, action) => {
-//       state.todos = state.todos.filter((todo) => {
-//         todo.id != action.payload;
-//       });
-//     },
-//   },
-// });
-// export const {addTodo,removeTodo} = todoSlice.actions
-// export default todoSlice.actions
+const counterSlice = createSlice({
+  name: "conuter",
+  initialState,
+  reducers: {
+    incerementCount: (state, action) => {
+      state.counter>=0&&( state.counter = state.counter + 1)
+    },
+    decrementCount: (state, action) => {
+     state.counter>0&&( state.counter = state.counter - 1)
+    },
+  },
+});
+export const { incerementCount, decrementCount } = counterSlice.actions;
+export default counterSlice.reducer;

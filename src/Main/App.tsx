@@ -20,25 +20,31 @@
 //     </MantineProvider>
 //   );
 // }
-
+<MantineProvider
+  theme={createTheme({
+    fontFamily: "Open Sans, sans-serif",
+    primaryColor: "red",
+    components: {
+      Text: {
+        styles: () => ({
+          root: { color: "red" },
+        }),
+      },
+    },
+  })}></MantineProvider>;
 // export default App;
 import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { MantineProvider, createTheme } from "@mantine/core";
 // import { Router } from "./Router";
-import { theme } from "./theme";
-import { CollapseDesktop } from "./Navbar";
-
+import { theme } from "../theme";
+import { CollapseDesktop } from "../Navbar";
+// import Count from "./Count";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <MantineProvider theme={theme}>
-        <Routes>
-          <Route path="/" element={<CollapseDesktop />}></Route>
-        </Routes>
-        {/* <Router /> */}
-      </MantineProvider>
-    </BrowserRouter>
+    <MantineProvider theme={theme}>
+      {/* <Count /> */}
+      <CollapseDesktop />
+    </MantineProvider>
   );
 }

@@ -8,7 +8,13 @@
 //     <App />
 //   </React.StrictMode>,
 // )
+import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import App from "./Main/App";
+import { store } from "./App/Store";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
