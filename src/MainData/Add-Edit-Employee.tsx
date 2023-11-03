@@ -9,9 +9,9 @@ export default function AddEditEmployee() {
   //   const [submittedValues, setSubmittedValues] = useState("");
   const form = useForm({
     initialValues: {
-      name: "Doe@gmail",
-      email: "Rajkumar*jd45An",
-      contact: "",
+      name: "Doe John",
+      email: "raj@gmail.com",
+      contact: "9856784578",
     },
 
   });
