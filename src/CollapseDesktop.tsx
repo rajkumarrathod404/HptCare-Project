@@ -12,11 +12,12 @@ import AddEditEmployee from "./MainScreen/Add-Edit-Employee";
 import SignUP from "./ScreenCover/Login/Signup/SignUp";
 import { CoverComponent } from "./ScreenCover/CoverComponent";
 // import { MantineLogo } from '@mantine/ds';
+import { editEmpContext } from "./Context/Context";
 interface empType {
-  id: contactber;
+  id: number;
   name: string;
   email: string;
-  contact: contactber;
+  contact: string;
 }
 
 export function CollapseDesktop() {
@@ -36,7 +37,9 @@ export function CollapseDesktop() {
   }, []);
 
   return (
-    <>
+    // <editEmpContext.Provider value={}>
+      <>
+
       <BrowserRouter>
         <Routes>
           <Route path="/cover" element={<CoverComponent />}></Route>
@@ -54,6 +57,7 @@ export function CollapseDesktop() {
         </Routes>
       </BrowserRouter>
     </>
+    // </editEmpContext.provider>
   );
 }
 // AppShell examples | Mantine

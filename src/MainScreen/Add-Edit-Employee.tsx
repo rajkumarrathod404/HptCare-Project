@@ -6,25 +6,33 @@ interface formInputValueType {
   email: string;
   contact: string;
 }
-// interface propType {
-//   SOURCE: string;
-// }
+interface propType {
+  sourceName: string;
+}
 
-export default function AddEditEmployee() {
+export default function AddEditEmployee(
+  // data: formInputValueType,
+  // sourceName: propType
+) {
   //   const [submittedValues, setSubmittedValues] = useState("");
-  const form = useForm({
-    initialValues: {
-      name: "Doe John",
-      email: "raj@gmail.com",
-      contact: "9865784578",
-    },
-    // ):
-    // initialValues: {
-    //   name: "",
-    //   email: "",
-    //   contact: "",
-    // },
-  });
+  const form = useForm(
+    // sourceName == "EDIT"
+    //   ? {
+    //       initialValues: {
+    //         name: data.name,
+    //         email: data.email,
+    //         contact: data.contact,
+    //       },
+    //     }
+    //   : 
+      {
+          initialValues: {
+            name: "",
+            email: "",
+            contact: "",
+          },
+        }
+  );
   const onsubmit = (value: formInputValueType) => {
     // value.preventDefault(),
     console.log("data", value);
@@ -48,15 +56,8 @@ export default function AddEditEmployee() {
   };
 
   return (
-    <Box maw={340} mx="auto" style={{ marginTop: "10%" }}>
+    <Box maw={340} mx="22rem" style={{ marginTop: "5%" }}>
       <form onSubmit={form.onSubmit((value) => onsubmit(value))}>
-        {/* <TextInput
-            type="contactber"
-            label="id"
-            placeholder="enter id"
-            mt="md"
-            {...form.getInputProps("id")}
-          /> */}
         <TextInput
           type="text"
           label="Name"
@@ -82,8 +83,6 @@ export default function AddEditEmployee() {
           Add Employee
         </Button>
       </form>
-
-      {/* {submittedValues && <Code block>{submittedValues}</Code>} */}
     </Box>
   );
 }

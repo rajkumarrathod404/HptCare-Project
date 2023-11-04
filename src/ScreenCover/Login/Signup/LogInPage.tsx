@@ -11,13 +11,15 @@ export default function LogInPage() {
   const navigate = useNavigate();
   // const [submittedValues, setSubmittedValues] = useState("");
   const [validFormFill, _] = useState({
-    email: "Doe@gmail",
-    pass: "Rajkumar*jd45An",
+    email: "Raj@gmail.com",
+    pass: "Rajkumar*$3A",
   });
   const form = useForm({
     initialValues: {
-      email: "Doe@gmail",
-      pass: "Rajkumar*jd45An",
+      email: "",
+      pass: "",
+    //   email: "Raj@gmail.com",
+    // pass: "Rajkumar*$3A",
     },
 
     // transformValues: (values) => ({
