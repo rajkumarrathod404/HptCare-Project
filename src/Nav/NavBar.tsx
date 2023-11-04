@@ -36,9 +36,17 @@ export default function NavBar() {
             size="sm"
           />
           <Avatar src={avtarImg} radius="xl" alt="it's me" />
-          <Link to={"/profile"}><Button style={{backgroundColor:"#5DADE2"}}>Profile</Button></Link>
-          <Link to={"/"}><Button style={{backgroundColor:"#5DADE2"}}>Employee Details</Button></Link>
-          <Link to={"/cover"}><Button>Log Out </Button></Link>
+          <Link to={"/profile"}>
+            <Button style={{ backgroundColor: "#5DADE2" }}>Profile</Button>
+          </Link>
+          <Link to={"/"}>
+            <Button style={{ backgroundColor: "#5DADE2" }}>
+              Employee Details
+            </Button>
+          </Link>
+          <Link to={"/cover"}>
+            <Button>Log Out </Button>
+          </Link>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
@@ -48,11 +56,15 @@ export default function NavBar() {
             { path: "/about", text: "About" },
             { path: "/contactus", text: "Contact US" },
             { path: "/chat", text: "Chat" },
-          ].map((item: sideBarType, index: number) => {
+          ].map((item: sideBarType, index) => {
             return (
               <ul>
                 <li key={index}>
-                  <Link to={item.path}>{item.text}</Link>
+                  <Link to={item.path}>
+                    <Button style={{ backgroundColor: "#5DADE2", borderRadius:"5px", width:"25vh" }}>
+                      {item.text}
+                    </Button>
+                  </Link>
                 </li>
               </ul>
             );

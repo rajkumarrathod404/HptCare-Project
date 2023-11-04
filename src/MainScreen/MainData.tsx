@@ -4,33 +4,29 @@ interface empType {
   id: number;
   name: string;
   email: string;
-  num: number;
+  contact: string;
 }
 // const handleAdd = () => {};
 const handleDeleteEdit = (id: number, source: string) => {
-  // if (window.confirm("do you want to delete ")) {
-  // source === "REMOVE"
-    // ? 
-    // fetch("http://localhost:5174/emp" + id, {
-    //     method: "DELETE",
-    //   })
-    //     .then(() => console.log("removed"))
-    //     .catch((err) => console.log(err.message))
-    // :
-     fetch("http://localhost:5174/emp" + id, {
-        method: "DELETE",
-      })
-        .then(() => console.log("removed"))
-        .catch((err) => console.log(err.message));
-
-  // }
+  if (window.confirm("do you want to delete ")) {
+    source === "REMOVE"
+      ? fetch(`http://localhost:8000/emp/${id}`, {
+          method: "DELETE",
+        })
+          .then(() => console.log("removed"))
+          .catch((err) => console.log(err.message))
+      : fetch(`http://localhost:8000/emp/${id}`, {
+          method: "DELETE",
+        })
+          .then(() => console.log("removed"))
+          .catch((err) => console.log(err.message));
+  }
 };
-
 const MainData = ({ emplist }: { emplist: empType[] }) => {
   return (
     <>
       <Paper shadow="md" p="md" style={{ width: "1300px", position: "fixed" }}>
-        <Link to={"/Add/emp"}>
+        <Link to={"/emp/create"}>
           <Button style={{ backgroundColor: "green", marginBottom: "10px" }}>
             Add Employee (+)
           </Button>
@@ -57,9 +53,9 @@ const MainData = ({ emplist }: { emplist: empType[] }) => {
                   <td>{emp.id}</td>
                   <td>{emp.name}</td>
                   <td>{emp.email}</td>
-                  <td>{emp.num}</td>
+                  <td>{emp.contact}</td>
                   <td>
-                    <Link to={"/Add/emp"}>
+                    <Link to={"/emp/create"}>
                       <Button
                         style={{ backgroundColor: "#5DADE2" }}
                         onClick={() => {
@@ -68,9 +64,8 @@ const MainData = ({ emplist }: { emplist: empType[] }) => {
                         Edit
                       </Button>
                     </Link>
-                    ;
                     <Button
-                      style={{ backgroundColor: "red" }}
+                      // style={{ backgroundColor: "red" }}
                       onClick={() => {
                         handleDeleteEdit(emp.id, "REMOVE");
                       }}>

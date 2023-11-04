@@ -13,17 +13,17 @@ import SignUP from "./ScreenCover/Login/Signup/SignUp";
 import { CoverComponent } from "./ScreenCover/CoverComponent";
 // import { MantineLogo } from '@mantine/ds';
 interface empType {
-  id: number;
+  id: contactber;
   name: string;
   email: string;
-  num: number;
+  contact: contactber;
 }
 
 export function CollapseDesktop() {
   const [empList, setEmpList] = useState<empType[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:5174/emp")
+    fetch("http://localhost:8000/emp")
       .then((res) => {
         return res.json();
       })
@@ -45,7 +45,7 @@ export function CollapseDesktop() {
 
           <Route path="/" element={<Nav />}>
             <Route path="/" element={<MainData emplist={empList} />}></Route>
-            <Route path="/Add/emp" element={<AddEditEmployee />}></Route>
+            <Route path="/emp/create" element={<AddEditEmployee />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/contactus" element={<ContactUs />}></Route>
             <Route path="/chat" element={<Chat />}></Route>

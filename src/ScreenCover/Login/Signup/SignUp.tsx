@@ -22,7 +22,7 @@ export default function SignUP() {
 
     // transformValues: (values) => ({
     //   fullName: `${values.firstName} ${values.lastName}`,
-    //   age: Number(values.age) || 0,
+    //   age: contactber(values.age) || 0,
     // }),
   });
   const onsubmit = (value: valueType) => {
