@@ -1,29 +1,35 @@
-import { useState } from "react";
 import { useForm } from "@mantine/form";
-import { TextInput, Button, Box, Code } from "@mantine/core";
+import { TextInput, Button, Box } from "@mantine/core";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 interface valueType {
   email: string;
   pass: string;
 }
-export default function LogInPage() {
+export default function SignUP() {
   const navigate = useNavigate();
-  const [submittedValues, setSubmittedValues] = useState("");
+  // const [submittedValues, setSubmittedValues] = useState("");
+  const [validFormFill, _] = useState({
+    email: "signup@gmail",
+    pass: "Rajkumar*jd45An",
+  });
   const form = useForm({
     initialValues: {
-      email: "Doe@gmail",
+      email: "signup@gmail",
       pass: "Rajkumar*jd45An",
     },
 
     // transformValues: (values) => ({
     //   fullName: `${values.firstName} ${values.lastName}`,
-    //   age: Number(values.age) || 0,
+    //   age: contactber(values.age) || 0,
     // }),
   });
   const onsubmit = (value: valueType) => {
-    navigate("/");
     console.log("data", value);
+    value.email === validFormFill.email && value.pass === validFormFill.pass
+      ? navigate("/")
+      : alert("please enter Valid Data");
   };
 
   return (
