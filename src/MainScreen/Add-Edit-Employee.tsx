@@ -1,19 +1,15 @@
 import { useForm } from "@mantine/form";
 import { TextInput, Button, Box } from "@mantine/core";
 
-interface formInputValueType {
+type formInputValue = {
   name: string;
   email: string;
   contact: string;
-}
-interface propType {
-  sourceName: string;
-}
+};
 
-export default function AddEditEmployee(
+export default function AddEditEmployee() {
   // data: formInputValueType,
   // sourceName: propType
-) {
   //   const [submittedValues, setSubmittedValues] = useState("");
   const form = useForm(
     // sourceName == "EDIT"
@@ -24,21 +20,21 @@ export default function AddEditEmployee(
     //         contact: data.contact,
     //       },
     //     }
-    //   : 
-      {
-          initialValues: {
-            name: "",
-            email: "",
-            contact: "",
-          },
-        }
+    //   :
+    {
+      initialValues: {
+        name: "",
+        email: "",
+        contact: "",
+      },
+    }
   );
-  const onsubmit = (value: formInputValueType) => {
+  const onsubmit = (value: formInputValue) => {
     // value.preventDefault(),
     console.log("data", value);
     const { name, email, contact } = { ...value };
     const empdata = { name, email, contact };
-    fetch("http://localhost:8000/emp", {
+    fetch("http://localhost:3000/emps", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(empdata),
@@ -46,13 +42,11 @@ export default function AddEditEmployee(
       .then((res) => {
         console.log("", empdata);
         return res.json();
-        console.log("res", res);
       })
       .then((resp) => {
         console.log("res", resp);
       })
       .catch((err) => console.log(err.message));
-    // setSubmittedValues(value);
   };
 
   return (

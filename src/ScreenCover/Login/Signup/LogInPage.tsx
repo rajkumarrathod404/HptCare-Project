@@ -1,25 +1,27 @@
-import { useState } from "react";
 import { useForm } from "@mantine/form";
 import { TextInput, Button, Box } from "@mantine/core";
 import { useNavigate } from "react-router";
 
-interface valueType {
+type Value = {
   email: string;
   pass: string;
-}
+};
+
+type Validation = {
+  email: string;
+  pass: string;
+};
+
 export default function LogInPage() {
   const navigate = useNavigate();
-  // const [submittedValues, setSubmittedValues] = useState("");
-  const [validFormFill, _] = useState({
+  const validFormFill: Validation = {
     email: "Raj@gmail.com",
     pass: "Rajkumar*$3A",
-  });
+  };
   const form = useForm({
     initialValues: {
-      email: "",
-      pass: "",
-    //   email: "Raj@gmail.com",
-    // pass: "Rajkumar*$3A",
+      email: "Raj@gmail.com",
+      pass: "Rajkumar*$3A",
     },
 
     // transformValues: (values) => ({
@@ -27,7 +29,7 @@ export default function LogInPage() {
     //   age: contactber(values.age) || 0,
     // }),
   });
-  const onsubmit = (value: valueType) => {
+  const onsubmit = (value: Value) => {
     console.log("data", value);
     value.email === validFormFill.email && value.pass === validFormFill.pass
       ? navigate("/")
@@ -53,8 +55,6 @@ export default function LogInPage() {
           Submit
         </Button>
       </form>
-
-      {/* {submittedValues && <Code block>{submittedValues}</Code>} */}
     </Box>
   );
 }

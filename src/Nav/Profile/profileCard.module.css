@@ -6,11 +6,6 @@
   padding: var(--mantine-spacing-xl);
   padding-left: calc(var(--mantine-spacing-xl) * 2);
 
-  /* @mixin hover {
-    box-shadow: var(--mantine-shadow-md);
-    transform: scale(1.02);
-  } */
-
   &::before {
     content: "";
     position: absolute;
