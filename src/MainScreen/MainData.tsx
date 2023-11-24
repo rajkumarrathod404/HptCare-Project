@@ -81,7 +81,6 @@ const MainData = ({ emplist }: { emplist: empType[] }) => {
                       </Button>
                     </Link>
                     <Button
-                      // style={{ backgroundColor: "red" }}
                       onClick={() => {
                         handleDeleteEdit(emp.id, "REMOVE");
                       }}
